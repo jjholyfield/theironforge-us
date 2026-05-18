@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* -- Brand Colors (Red/Black) -- */
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #ef4444;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+  --color-brand-800: #991b1b;
+  --color-brand-900: #7f1d1d;
+  --color-brand-950: #450a0a;
+
+  /* -- Surface Colors (Dark Theme) -- */
+  --color-surface: #0a0a0a;
+  --color-surface-elevated: #111111;
+  --color-surface-overlay: #1a1a1a;
+
+  /* -- Border Colors -- */
+  --color-border: #262626;
+  --color-border-subtle: #1a1a1a;
+
+  /* -- Text Colors -- */
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #737373;
+
+  /* -- Elevation System (3 levels, dark-optimized) -- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+
+  /* -- Typography -- */
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* -- Base Styles -- */
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* -- Component Styles -- */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background: linear-gradient(to bottom, var(--color-brand-500), var(--color-brand-600));
+    color: white;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.3),
+      inset 0 1px 0 rgb(255 255 255 / 0.1);
+    transition: all 0.15s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    background: linear-gradient(to bottom, var(--color-brand-400), var(--color-brand-500));
+    box-shadow:
+      0 4px 12px color-mix(in srgb, var(--color-brand-500) 30%, transparent),
+      inset 0 1px 0 rgb(255 255 255 / 0.15);
+  }
+  .btn-primary:active {
+    background: linear-gradient(to bottom, var(--color-brand-600), var(--color-brand-700));
+    box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.3);
+    transform: translateY(1px);
+  }
+}
