@@ -28,9 +28,15 @@ export function Hero({ title, subtitle, ctaText, ctaHref, className = '' }: Hero
         </p>
       )}
       {ctaText && ctaHref && (
-        <Link to={ctaHref} className="btn-primary mt-8 text-lg">
-          {ctaText}
-        </Link>
+        ctaHref.startsWith('http') ? (
+          <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="btn-primary mt-8 text-lg">
+            {ctaText}
+          </a>
+        ) : (
+          <Link to={ctaHref} className="btn-primary mt-8 text-lg">
+            {ctaText}
+          </Link>
+        )
       )}
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface to-transparent" />
     </motion.div>

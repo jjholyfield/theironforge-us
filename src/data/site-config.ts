@@ -1,0 +1,7 @@
+export const SKOOL_URL = 'https://www.skool.com/iron-forge-brotherhood'
+export const YOUTUBE_URL = 'https://www.youtube.com/@joshholyfield'
+export const INSTAGRAM_URL = 'https://www.instagram.com/joshholyfield/'
+export const TIKTOK_URL = 'https://www.tiktok.com/@joshholyfield'
+export const ANVIL_URL = 'https://anvilnutrition.us'
+export const SITE_NAME = 'Iron Forge Brotherhood'
+export const SEO_TITLE_SUFFIX = '| Iron Forge Brotherhood'

@@ -12,6 +12,10 @@ interface CTABlockProps {
   className?: string
 }
 
+function isExternal(href: string) {
+  return href.startsWith('http://') || href.startsWith('https://')
+}
+
 export function CTABlock({
   heading,
   description,
@@ -38,16 +42,33 @@ export function CTABlock({
         </p>
       )}
       <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Link to={primaryHref} className="btn-primary">
-          {primaryText}
-        </Link>
-        {secondaryText && secondaryHref && (
-          <Link
-            to={secondaryHref}
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-border text-text-secondary hover:text-text-primary transition-colors"
-          >
-            {secondaryText}
+        {isExternal(primaryHref) ? (
+          <a href={primaryHref} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            {primaryText}
+          </a>
+        ) : (
+          <Link to={primaryHref} className="btn-primary">
+            {primaryText}
           </Link>
+        )}
+        {secondaryText && secondaryHref && (
+          isExternal(secondaryHref) ? (
+            <a
+              href={secondaryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-border text-text-secondary hover:text-text-primary transition-colors"
+            >
+              {secondaryText}
+            </a>
+          ) : (
+            <Link
+              to={secondaryHref}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-border text-text-secondary hover:text-text-primary transition-colors"
+            >
+              {secondaryText}
+            </Link>
+          )
         )}
       </div>
     </motion.div>

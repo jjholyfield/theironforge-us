@@ -5,15 +5,17 @@ interface SectionProps {
   children: React.ReactNode
   gradient?: 'none' | 'top' | 'bottom' | 'both'
   className?: string
+  id?: string
 }
 
-export function Section({ children, gradient = 'none', className = '' }: SectionProps) {
+export function Section({ children, gradient = 'none', className = '', id }: SectionProps) {
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
       variants={fadeInUp}
+      id={id}
       className={`relative px-6 py-16 md:py-24 ${className}`}
     >
       {(gradient === 'top' || gradient === 'both') && (
